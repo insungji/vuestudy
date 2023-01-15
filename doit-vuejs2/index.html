@@ -12,11 +12,28 @@
     <script>
 
         new Vue({   //인스턴스
-            el: '#app', //el속성
+            el: '#app', //el속성  id에 속성 연결시 #app 뷰로 만든 화면이 그려지는 시작점이다.
             data : {    //데이터속성
                 message :'Hellow Vue.js!!'
+            },
+
+            //Vue 생명주기 확인 (예전 리액트에서 componentDidMount , componentWillMount와 같은 생명주기이다.
+            beforeCreate: function() {
+                console.log("beforeCreate");
+            },
+            created: function() {
+                console.log("created");
+            },
+            mounted: function() {
+                console.log("mounted");
+                this.message = 'HELLO VUE!'
+            },
+            updated: function() {
+                console.log("updated");
             }
         });
+
+
 
     </script>
 </body>
