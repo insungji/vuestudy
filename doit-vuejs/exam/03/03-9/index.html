@@ -7,16 +7,18 @@
   </head>
   <body>
     <div id="app">
-      <child-component v-on:show-log="printText"></child-component>
+      <child-component v-on:show-log="printText"></child-component> <!-- 이벤트 수신    3번 -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script>
       Vue.component('child-component', {
-        template: '<button v-on:click="showLog">show</button>',
+
+
+        template: '<button v-on:click="showLog">show</button>',  //v-on: 이벤트명 = '' 이벤트 수신 1번
         methods: {
           showLog: function() {
-            this.$emit('show-log');
+            this.$emit('show-log'); // 이벤트 발생 2번
           }
         }
       });
@@ -27,8 +29,9 @@
           message: 'Hello Vue! passed from Parent Component'
         },
         methods: {
-          printText: function() {
+          printText: function() {  // 4번
             console.log("received an event");
+            alert("버튼 눌렀지 ~~ ");
           }
         }
       });

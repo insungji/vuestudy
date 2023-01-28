@@ -8,11 +8,13 @@
   <body>
     <div id="app">
       <!-- 팁 : 오른쪽에서 왼쪽으로 속성을 읽으면 더 수월합니다. -->
+      <!-- propsdate props 속성 이름 message 상위 컴포넌트의 데이터 속성 -->
       <child-component v-bind:propsdata="message"></child-component>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script>
+      //상위 컴포넌트에서 하위 컴포넌트로 데이터 전달하기 위해선 props의 속성이 필요하다.
       Vue.component('child-component', {
         props: ['propsdata'],
         template: '<p>{{ propsdata }}</p>',

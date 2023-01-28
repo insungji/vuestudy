@@ -12,13 +12,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script>
-      var eventBus = new Vue();
+      var eventBus = new Vue(); // 이벤트 버스 인스턴스 생성 순서1번
 
       Vue.component('child-component', {
-        template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>',
+        template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>', //순서2번
         methods: {
           showLog: function() {
-            eventBus.$emit('triggerEventBus', 100);
+            eventBus.$emit('triggerEventBus', 100); //이벤트를 보내는 컴포넌트
           }
         }
       });
@@ -26,7 +26,7 @@
       var app = new Vue({
         el: '#app',
         created: function() {
-          eventBus.$on('triggerEventBus', function(value){
+          eventBus.$on('triggerEventBus', function(value){    //이벤트를 받는 컴포넌트 순번3번
             console.log("이벤트를 전달 받음. 전달 받은 값 : ", value);
           });
         }
