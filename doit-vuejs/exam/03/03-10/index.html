@@ -18,7 +18,7 @@
         template: '<div>하위 컴포넌트 영역입니다.<button v-on:click="showLog">show</button></div>', //순서2번
         methods: {
           showLog: function() {
-            eventBus.$emit('triggerEventBus', 100); //이벤트를 보내는 컴포넌트 ($emit)
+            eventBus.$emit('triggerEventBus', 100); //이벤트를 보내는 컴포넌트 ($emit) 2023.03.17
           }
         }
       });
@@ -26,7 +26,7 @@
       var app = new Vue({
         el: '#app',
         created: function() {
-          eventBus.$on('triggerEventBus', function(value){    //이벤트를 받는 컴포넌트 순번3번 ($on)
+          eventBus.$on('triggerEventBus', function(value){    //이벤트를 받는 컴포넌트 순번3번 ($on) 2023.03.17
             console.log("이벤트를 전달 받음. 전달 받은 값 : ", value);
           });
         }
