@@ -8,16 +8,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script> <!-- 뷰 리소스 CDN-->
     <script>
       new Vue({
         el: '#app',
         methods: {
           getData: function() {
-            this.$http.get(`https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json`)
-                .then(function(response) {
+            this.$http.get(`https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json`) //데이터 요청
+                .then(function(response) { //응답받은 프레임워크 목록들 !!
                   console.log(response);
-                  console.log(JSON.parse(response.data));
+                  console.log(JSON.parse(response.data)); //자바스크립트 객체로 변환
                 });
           }
         }

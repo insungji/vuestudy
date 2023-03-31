@@ -8,15 +8,15 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
-		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script> <!-- 엑시오스 CDN-->
 		<script>
 			new Vue({
 				el: '#app',
 				methods: {
-					getData: function() {
+					getData: function() {   //http GET 요청
 						axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
 							.then(function(response) {
-								console.log(response);
+								console.log(response); // axios를 통하여 http를 요청하면 json파싱(자바스크립트객체)변환이 필요 없다.
 							});
 					}
 				}
